@@ -6,6 +6,11 @@ export function formatPrice(value: number) {
   }).format(value);
 }
 
+export function formatProductPrice(value: number, priceOnRequest = false, priceIsEstimate = false) {
+  if (priceOnRequest) return "Price to be confirmed";
+  return `${priceIsEstimate ? "Est. " : ""}${formatPrice(value)}`;
+}
+
 export function cn(...parts: Array<string | false | null | undefined>) {
   return parts.filter(Boolean).join(" ");
 }

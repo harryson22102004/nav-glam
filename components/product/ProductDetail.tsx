@@ -6,7 +6,7 @@ import { Heart, X } from "lucide-react";
 import { ProductCard } from "@/components/product/ProductCard";
 import { OverlayDialog } from "@/components/ui/OverlayDialog";
 import { WaitlistButton } from "@/components/waitlist/WaitlistButton";
-import { formatPrice } from "@/lib/format";
+import { formatProductPrice } from "@/lib/format";
 import { useStore } from "@/lib/store";
 import type { Product } from "@/lib/types";
 
@@ -50,7 +50,7 @@ export function ProductDetail({ product, related }: { product: Product; related:
           </p>
           <h1 className="mt-4 font-serif text-5xl leading-none md:text-7xl">{product.name}</h1>
           <p className="mt-3 text-sm text-stone">{product.categoryLabel} · {product.colorName}</p>
-          <p className="mt-6 text-2xl">{formatPrice(product.price)}</p>
+          <p className="mt-6 text-2xl">{formatProductPrice(product.price, product.priceOnRequest, product.priceIsEstimate)}</p>
           <p className="mt-6 max-w-md text-sm leading-relaxed">{product.description}</p>
           <ul className="mt-4 flex flex-wrap gap-2">
             {product.catalogNotes.map((note) => (
@@ -59,13 +59,17 @@ export function ProductDetail({ product, related }: { product: Product; related:
           </ul>
           <div className="mt-6 flex flex-wrap gap-3">
             <WaitlistButton label="Join the Waitlist" productName={product.name} />
-            <WaitlistButton label="Pre-Order Now" productName={product.name} className="btn" />
+            {!product.priceOnRequest ? <WaitlistButton label="Pre-Order Now" productName={product.name} className="btn" /> : null}
             <button className="btn" aria-pressed={wished(product.slug)} onClick={() => toggleWish(product.slug)}>
               <Heart size={14} fill={wished(product.slug) ? "currentColor" : "none"} />
               Wishlist
             </button>
           </div>
-          <p className="mt-4 text-xs text-stone">Photographed in {product.colorName}. Size is confirmed when you join the waitlist.</p>
+          <p className="mt-4 text-xs text-stone">
+            {product.priceOnRequest
+              ? `Photographed in ${product.colorName}. Sizing and availability will be confirmed before ordering.`
+              : `Photographed in ${product.colorName}. Size is confirmed when you join the waitlist.`}
+          </p>
           <div className="mt-10 border-t border-ink/10">
             <Accordion id="story" title="The story" open={open} setOpen={setOpen}>
               <p>{product.description}</p>
@@ -74,7 +78,7 @@ export function ProductDetail({ product, related }: { product: Product; related:
               <ul className="space-y-1">
                 {product.catalogNotes.map((note) => <li key={note}>{note}</li>)}
                 <li>Collection edit: {product.collection}</li>
-                <li>Price from the current catalog list: {formatPrice(product.price)}</li>
+                <li>{formatProductPrice(product.price, product.priceOnRequest, product.priceIsEstimate)}</li>
               </ul>
             </Accordion>
             <Accordion id="shipping" title="Shipping" open={open} setOpen={setOpen}>

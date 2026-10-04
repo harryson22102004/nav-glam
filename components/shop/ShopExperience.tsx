@@ -78,7 +78,7 @@ export function ShopExperience({
   const filtered = useMemo(() => {
     let list = base.filter((product) => {
       if (selectedCategories.length && !selectedCategories.includes(product.category)) return false;
-      if (prices.length && !prices.some((band) => priceBands.find((item) => item.id === band)?.test(product.price))) return false;
+      if (prices.length && (product.priceOnRequest || !prices.some((band) => priceBands.find((item) => item.id === band)?.test(product.price)))) return false;
       if (colors.length && !colors.includes(product.colorName)) return false;
       if (sizes.length && !sizes.some((size) => product.sizes.includes(size))) return false;
       if (moods.length && !moods.some((mood) => product.moods.includes(mood as Mood))) return false;
@@ -131,6 +131,7 @@ export function ShopExperience({
         <div className="mt-8 flex gap-2 overflow-x-auto hide-scroll text-[0.68rem] tracking-[0.18em] uppercase">
           {[
             ["/shop", "All"],
+            ["/shop/lehengas", "Lehengas"],
             ["/shop/sets", "Sets"],
             ["/shop/blouses", "Blouses"],
             ["/shop/jackets", "Jackets"],
@@ -292,8 +293,8 @@ function FilterGroups({
 
 function sortProducts(list: Product[], sort: string) {
   const next = [...list];
-  if (sort === "price-asc") next.sort((a, b) => a.price - b.price);
-  else if (sort === "price-desc") next.sort((a, b) => b.price - a.price);
+  if (sort === "price-asc") next.sort((a, b) => Number(Boolean(a.priceOnRequest)) - Number(Boolean(b.priceOnRequest)) || a.price - b.price);
+  else if (sort === "price-desc") next.sort((a, b) => Number(Boolean(a.priceOnRequest)) - Number(Boolean(b.priceOnRequest)) || b.price - a.price);
   else if (sort === "new") next.sort((a, b) => Number(b.tags.includes("NEW")) - Number(a.tags.includes("NEW")));
   else next.sort((a, b) => Number(b.featured) - Number(a.featured));
   return next;

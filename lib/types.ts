@@ -16,6 +16,7 @@ export type Mood =
 export type Category =
   | "3-piece"
   | "2-piece"
+  | "lehenga"
   | "blouse"
   | "padded-blouse"
   | "jacket"
@@ -33,8 +34,10 @@ export type Product = {
   categoryLabel: string;
   /** Price taken from the supplied catalog price list. */
   price: number;
+  priceOnRequest?: boolean;
+  priceIsEstimate?: boolean;
   /**
-   * Real photography lives here, e.g. ["/products/nav-edit-01.jpg"].
+  * Real photography lives here, e.g. ["/products/lehenga-01.png"].
    * Empty array renders the editorial color study.
    */
   images: string[];

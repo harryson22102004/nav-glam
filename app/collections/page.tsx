@@ -16,7 +16,7 @@ export default function CollectionsPage() {
         <p className="mt-5 max-w-lg text-sm text-stone">Each edit is a way of styling the same catalog. A piece can sit in a mood without leaving its category.</p>
         <div className="mt-10 grid gap-0 md:grid-cols-2">
           {collections.map((collection) => {
-            const cover = collection.products().find((product) => product.images[0])?.images[0] ?? "/products/rang-mahal.jpg";
+            const cover = collection.products().find((product) => product.images[0])?.images[0] ?? "/products/lehenga-18.png";
             return (
             <Link key={collection.slug} href={`/collections/${collection.slug}`} className="group relative min-h-72 overflow-hidden bg-ink text-ivory">
               {/* eslint-disable-next-line @next/next/no-img-element */}

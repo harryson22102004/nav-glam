@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ProductVisual } from "@/components/visual/ProductVisual";
 import { getByPiece } from "@/lib/catalog";
 import { WaitlistButton } from "@/components/waitlist/WaitlistButton";
-import { formatPrice } from "@/lib/format";
+import { formatProductPrice } from "@/lib/format";
 import type { Product } from "@/lib/types";
 
 const groups = [
@@ -70,7 +70,7 @@ export function MixMatch() {
         <div className="mt-10 flex flex-col items-start justify-between gap-6 border-t border-ink/10 pt-6 md:flex-row md:items-center">
           <div>
             <p className="eyebrow">Look total</p>
-            <p className="mt-2 font-serif text-5xl">{formatPrice(total)}</p>
+            <p className="mt-2 font-serif text-5xl">{formatProductPrice(total, false, Object.values(chosen).some((product) => product.priceIsEstimate))}</p>
             <p className="mt-2 max-w-md text-sm text-stone">Three separate catalog pieces. Sets are listed on their own and are not broken into these parts.</p>
           </div>
           <WaitlistButton
@@ -104,7 +104,7 @@ function PiecePicker({
         <div className="text-center">
           <p className="eyebrow text-[0.58rem] text-bronze">{label}</p>
           <p className="font-serif text-2xl leading-none">{product.name}</p>
-          <p className="mt-1 text-sm">{formatPrice(product.price)}</p>
+          <p className="mt-1 text-sm">{formatProductPrice(product.price, product.priceOnRequest, product.priceIsEstimate)}</p>
         </div>
         <button aria-label={`Next ${label}`} onClick={onNext} className="grid h-9 w-9 place-items-center border border-ink/15"><ChevronRight size={16} /></button>
       </div>

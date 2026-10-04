@@ -21,7 +21,7 @@ export default async function CollectionPage({ params }: { params: Promise<{ slu
   const collection = getCollection(slug);
   if (!collection) notFound();
   const items = collection.products();
-  const cover = items.find((product) => product.images[0])?.images[0] ?? "/products/rang-mahal.jpg";
+  const cover = items.find((product) => product.images[0])?.images[0] ?? "/products/lehenga-18.png";
   return (
     <div className="bg-ivory">
       <section className="relative min-h-[70svh] bg-ink text-ivory">

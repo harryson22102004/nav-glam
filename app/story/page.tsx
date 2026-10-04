@@ -25,7 +25,7 @@ export default function StoryPage() {
         </div>
         <div className="relative min-h-[60vw] lg:min-h-full">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/products/safed-kadhai.jpg" alt="Safed Kadhai lehenga" className="h-full w-full object-cover lg:absolute lg:inset-0" />
+          <img src="/products/lehenga-07.png" alt="Ivory lehenga styled on a model" className="h-full w-full object-cover lg:absolute lg:inset-0" />
         </div>
       </header>
       {sections.map((section, index) => (

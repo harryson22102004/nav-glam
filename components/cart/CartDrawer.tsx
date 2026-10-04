@@ -5,7 +5,7 @@ import { Minus, Plus, X } from "lucide-react";
 import { OverlayDialog } from "@/components/ui/OverlayDialog";
 import { ProductVisual } from "@/components/visual/ProductVisual";
 import { WaitlistButton } from "@/components/waitlist/WaitlistButton";
-import { formatPrice } from "@/lib/format";
+import { formatProductPrice } from "@/lib/format";
 import { useStore } from "@/lib/store";
 
 export function CartDrawer() {
@@ -54,7 +54,7 @@ export function CartDrawer() {
                       <span className="min-w-6 text-center text-sm">{line.qty}</span>
                       <button aria-label="Increase quantity" className="px-2 py-1" onClick={() => setQty(line.slug, line.qty + 1)}><Plus size={12} /></button>
                     </div>
-                    <p className="text-sm">{formatPrice(line.product.price * line.qty)}</p>
+                    <p className="text-sm">{formatProductPrice(line.product.price * line.qty, line.product.priceOnRequest, line.product.priceIsEstimate)}</p>
                   </div>
                 </div>
               </li>
@@ -66,7 +66,7 @@ export function CartDrawer() {
         <div className="border-t border-ink/10 px-5 py-5">
           <div className="flex items-center justify-between">
             <span className="eyebrow">Subtotal</span>
-            <span>{formatPrice(subtotal)}</span>
+            <span>{formatProductPrice(subtotal, false, detailed.some((line) => line.product.priceIsEstimate))}</span>
           </div>
           <WaitlistButton
             label="Pre-Order Now"

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { WaitlistButton } from "@/components/waitlist/WaitlistButton";
 import { ProductVisual } from "@/components/visual/ProductVisual";
-import { formatPrice } from "@/lib/format";
+import { formatProductPrice } from "@/lib/format";
 import { useStore } from "@/lib/store";
 
 export default function CartPage() {
@@ -30,7 +30,7 @@ export default function CartPage() {
                         <Link href={`/product/${line.slug}`} className="font-serif text-3xl">{line.product.name}</Link>
                         <p className="text-xs uppercase tracking-[0.16em] text-stone">{line.product.categoryLabel}</p>
                       </div>
-                      <p>{formatPrice(line.product.price * line.qty)}</p>
+                      <p>{formatProductPrice(line.product.price * line.qty, line.product.priceOnRequest, line.product.priceIsEstimate)}</p>
                     </div>
                     <div className="mt-4 flex items-center gap-4">
                       <label className="text-sm">Qty
@@ -53,7 +53,7 @@ export default function CartPage() {
               <p className="eyebrow">Pre-order</p>
               <div className="mt-4 flex justify-between">
                 <span>Subtotal</span>
-                <span>{formatPrice(subtotal)}</span>
+                <span>{formatProductPrice(subtotal, false, detailed.some((line) => line.product.priceIsEstimate))}</span>
               </div>
               <p className="mt-3 text-sm text-stone">Join the waitlist for this edit. The first batch is cut from demand.</p>
               <WaitlistButton

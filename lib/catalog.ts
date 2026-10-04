@@ -1,5 +1,7 @@
 import type { Category, Mood, Product } from "./types";
 import type { Silhouette } from "./studies";
+import { lehengaProducts } from "./lehenga-products";
+import { additionalProducts } from "./additional-products";
 
 /**
  * House catalog. Photography is the cloth itself, placed in /public/products.
@@ -14,7 +16,7 @@ export const products: Product[] = [
     category: "3-piece",
     categoryLabel: "Lehenga set",
     price: 4200,
-    images: ["/products/neel-mandala.jpg"],
+    images: ["/products/lehenga-02.png"],
     study: "royal",
     silhouette: "set",
     description:
@@ -38,7 +40,7 @@ export const products: Product[] = [
     category: "3-piece",
     categoryLabel: "Lehenga set",
     price: 3800,
-    images: ["/products/nritya.jpg"],
+    images: ["/products/lehenga-12.png"],
     study: "midnight",
     silhouette: "set",
     description:
@@ -62,7 +64,7 @@ export const products: Product[] = [
     category: "3-piece",
     categoryLabel: "Lehenga set",
     price: 3500,
-    images: ["/products/ajrakh-lehenga.jpg"],
+    images: ["/products/lehenga-14.png"],
     study: "maroon",
     silhouette: "set",
     description:
@@ -86,7 +88,7 @@ export const products: Product[] = [
     category: "3-piece",
     categoryLabel: "Lehenga set",
     price: 3400,
-    images: ["/products/safed-kadhai.jpg"],
+    images: ["/products/lehenga-10.png"],
     study: "ivory",
     silhouette: "set",
     description:
@@ -110,7 +112,7 @@ export const products: Product[] = [
     category: "2-piece",
     categoryLabel: "2-piece set",
     price: 3300,
-    images: ["/products/laal-chowk.jpg"],
+    images: ["/products/lehenga-01.png"],
     study: "rani",
     silhouette: "set2",
     description:
@@ -134,7 +136,7 @@ export const products: Product[] = [
     category: "2-piece",
     categoryLabel: "Styled set",
     price: 3200,
-    images: ["/products/rang-mahal.jpg"],
+    images: ["/products/lehenga-18.png"],
     study: "saffron",
     silhouette: "set2",
     description:
@@ -158,7 +160,7 @@ export const products: Product[] = [
     category: "2-piece",
     categoryLabel: "Styled set",
     price: 2800,
-    images: ["/products/gol-buta.jpg"],
+    images: ["/products/lehenga-08.png"],
     study: "royal",
     silhouette: "set2",
     description:
@@ -182,7 +184,7 @@ export const products: Product[] = [
     category: "blouse",
     categoryLabel: "Free-size blouse",
     price: 1500,
-    images: ["/products/ivory-paisley.jpg"],
+    images: ["/products/blouse-01.png"],
     study: "ivory",
     silhouette: "blouse",
     description: "A free-size strappy blouse in ivory, covered in multicolour paisley embroidery. Wear it inside a set or on its own.",
@@ -205,7 +207,7 @@ export const products: Product[] = [
     category: "blouse",
     categoryLabel: "Free-size blouse",
     price: 1300,
-    images: ["/products/rani-paisley.jpg"],
+    images: ["/products/blouse-02.png"],
     study: "rani",
     silhouette: "blouse",
     description: "The same paisley hand, on a rani ground. Free size, strappy, cropped.",
@@ -228,7 +230,7 @@ export const products: Product[] = [
     category: "blouse",
     categoryLabel: "Free-size blouse",
     price: 1250,
-    images: ["/products/jamuni-paisley.jpg"],
+    images: ["/products/blouse-08.png"],
     study: "magenta",
     silhouette: "blouse",
     description: "Paisley embroidery on jamuni purple. A free-size strappy blouse.",
@@ -251,7 +253,7 @@ export const products: Product[] = [
     category: "padded-blouse",
     categoryLabel: "Mirror-work blouse",
     price: 1500,
-    images: ["/products/neel-sheesha.jpg"],
+    images: ["/products/blouse-06.png"],
     study: "royal",
     silhouette: "blouse",
     description:
@@ -275,7 +277,7 @@ export const products: Product[] = [
     category: "padded-blouse",
     categoryLabel: "Embroidered blouse",
     price: 1300,
-    images: ["/products/hari-chakra.jpg"],
+    images: ["/products/blouse-07.png"],
     study: "emerald",
     silhouette: "blouse",
     description: "Forest green blouse. Coloured ring embroidery along the hem and at the straps.",
@@ -298,7 +300,7 @@ export const products: Product[] = [
     category: "blouse",
     categoryLabel: "Free-size blouse",
     price: 1500,
-    images: ["/products/kaali-paisley.jpg"],
+    images: ["/products/blouse-03.png"],
     study: "midnight",
     silhouette: "blouse",
     description: "Paisley embroidery on black. A free-size strappy blouse for later hours.",
@@ -315,23 +317,23 @@ export const products: Product[] = [
   },
   {
     id: "ng-14",
-    name: "Hathi Mor",
-    nameIsPlaceholder: false,
+    name: "Jacket 01",
+    nameIsPlaceholder: true,
     slug: "hathi-mor",
     category: "jacket",
-    categoryLabel: "Jacket",
-    price: 3400,
-    images: ["/products/hathi-mor.jpg"],
+    categoryLabel: "Sleeveless cropped layer",
+    price: 2750,
+    priceIsEstimate: true,
+    images: ["/products/jacket-01.png"],
     study: "royal",
     silhouette: "jacket",
-    description:
-      "A sleeveless jacket in royal blue, embroidered with pink elephants, peacocks, flowers and trailing vines. The layer that turns a skirt into evening.",
-    catalogNotes: ["Embroidered jacket", "Sleeveless"],
+    description: "A royal-blue sleeveless cropped layer with vivid multicolour circular trim and tie details.",
+    catalogNotes: ["Sleeveless cropped layer", "Multicolour trim", "Estimated price"],
     sizes: ["Catalog size unspecified"],
     colorName: "Royal blue",
     colorIsEditorial: false,
     tags: ["EDITED"],
-    keywords: ["jacket", "koti", "elephant", "peacock", "blue", "embroidery", "vest"],
+    keywords: ["jacket", "layer", "blue", "mirror", "multicolour trim", "sleeveless"],
     collection: "The Jacket Edit",
     moods: ["statement", "after-dark", "festive"],
     featured: true,
@@ -345,7 +347,7 @@ export const products: Product[] = [
     category: "flare-skirt",
     categoryLabel: "Flare skirt",
     price: 2800,
-    images: ["/products/rang-rail.jpg"],
+    images: ["/products/lehenga-31.png"],
     study: "mustard",
     silhouette: "flare",
     description:
@@ -369,7 +371,7 @@ export const products: Product[] = [
     category: "skirt",
     categoryLabel: "Skirt",
     price: 1500,
-    images: ["/products/neel-resham.jpg"],
+    images: ["/products/lehenga-32.png"],
     study: "midnight",
     silhouette: "skirt",
     description: "Navy skirt with gold linear embroidery running through the flare and a denser band at the hem.",
@@ -392,7 +394,7 @@ export const products: Product[] = [
     category: "skirt-only",
     categoryLabel: "Border skirt",
     price: 1250,
-    images: ["/products/ivory-jaal.jpg"],
+    images: ["/products/lehenga-33.png"],
     study: "cream",
     silhouette: "skirt",
     description: "An ivory flare with a deep maroon border of floral jaal and a white tassel edge.",
@@ -415,7 +417,7 @@ export const products: Product[] = [
     category: "skirt",
     categoryLabel: "Skirt",
     price: 1300,
-    images: ["/products/kaali-katha.jpg"],
+    images: ["/products/lehenga-34.png"],
     study: "ink",
     silhouette: "skirt",
     description: "A black flared skirt with a red border of repeating figures and a narrow black fringe.",
@@ -430,6 +432,8 @@ export const products: Product[] = [
     featured: false,
     pieces: ["skirt"],
   },
+  ...lehengaProducts,
+  ...additionalProducts,
 ];
 
 export const categoryGroups: Record<

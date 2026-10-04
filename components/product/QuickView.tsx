@@ -6,7 +6,7 @@ import { OverlayDialog } from "@/components/ui/OverlayDialog";
 import { ProductVisual } from "@/components/visual/ProductVisual";
 import { getProduct } from "@/lib/catalog";
 import { WaitlistButton } from "@/components/waitlist/WaitlistButton";
-import { formatPrice } from "@/lib/format";
+import { formatProductPrice } from "@/lib/format";
 import { useStore } from "@/lib/store";
 
 export function QuickView() {
@@ -29,7 +29,7 @@ export function QuickView() {
             </button>
             <p className="eyebrow text-bronze">{product.categoryLabel}</p>
             <h2 className="mt-3 font-serif text-5xl leading-none">{product.name}</h2>
-            <p className="mt-4 text-lg">{formatPrice(product.price)}</p>
+            <p className="mt-4 text-lg">{formatProductPrice(product.price, product.priceOnRequest, product.priceIsEstimate)}</p>
             <p className="mt-4 text-sm leading-relaxed text-stone">{product.description}</p>
             <ul className="mt-4 space-y-1 text-sm">
               {product.catalogNotes.map((note) => <li key={note}>{note}</li>)}

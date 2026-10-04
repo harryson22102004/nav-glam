@@ -6,7 +6,7 @@ import { useMemo, useState } from "react";
 import { X } from "lucide-react";
 import { OverlayDialog } from "@/components/ui/OverlayDialog";
 import { searchProducts } from "@/lib/catalog";
-import { formatPrice } from "@/lib/format";
+import { formatProductPrice } from "@/lib/format";
 import { useStore } from "@/lib/store";
 
 export function SearchDialog() {
@@ -81,7 +81,7 @@ export function SearchDialog() {
                     <span className="font-serif text-2xl">{product.name}</span>
                     <span className="ml-3 text-xs uppercase tracking-[0.16em] text-stone">{product.categoryLabel}</span>
                   </span>
-                  <span className="text-sm">{formatPrice(product.price)}</span>
+                  <span className="text-sm">{formatProductPrice(product.price, product.priceOnRequest, product.priceIsEstimate)}</span>
                 </Link>
               </li>
             ))}

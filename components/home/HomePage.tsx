@@ -9,26 +9,26 @@ import { collections, homeMoods } from "@/lib/collections";
 import { journal } from "@/lib/journal";
 
 const heroShots = [
-  { src: "/products/rang-mahal.jpg", alt: "Rang Mahal lehenga, worn" },
-  { src: "/products/hathi-mor.jpg", alt: "Hathi Mor embroidered jacket" },
-  { src: "/products/neel-sheesha.jpg", alt: "Neel Sheesha mirror blouse" },
-  { src: "/products/ajrakh-lehenga.jpg", alt: "Ajrakh lehenga set" },
+  { src: "/products/lehenga-01.png", alt: "Red lehenga styled on a model" },
+  { src: "/products/lehenga-05.png", alt: "Lime lehenga styled on a model" },
+  { src: "/products/lehenga-08.png", alt: "Navy lehenga styled on a model" },
+  { src: "/products/lehenga-18.png", alt: "Multicolour lehenga styled on a model" },
 ];
 
 const edits = [
-  { href: "/shop/sets", title: "Lehenga sets", kicker: "Choli, flare, dupatta", image: "/products/neel-mandala.jpg" },
-  { href: "/shop/blouses", title: "Blouse stories", kicker: "Free size", image: "/products/jamuni-paisley.jpg" },
-  { href: "/shop/jackets", title: "The jacket edit", kicker: "The koti", image: "/products/hathi-mor.jpg" },
-  { href: "/shop/skirts", title: "Skirt culture", kicker: "Volume", image: "/products/rang-rail.jpg" },
+  { href: "/shop/lehengas", title: "The lehenga edit", kicker: "Worn, then seen", image: "/products/lehenga-02.png" },
+  { href: "/shop/blouses", title: "Blouse stories", kicker: "Print and mirrorwork", image: "/products/blouse-06.png" },
+  { href: "/shop/jackets", title: "The jacket edit", kicker: "Sleeveless layers", image: "/products/jacket-01.png" },
+  { href: "/shop/skirts", title: "Skirt culture", kicker: "Volume", image: "/products/lehenga-33.png" },
 ];
 
 const moodShots: Record<string, string> = {
-  mehfil: "/products/gol-buta.jpg",
-  rang: "/products/rang-rail.jpg",
-  midnight: "/products/kaali-paisley.jpg",
-  festive: "/products/nritya.jpg",
-  "after-dark": "/products/kaali-katha.jpg",
-  "everyday-glam": "/products/ivory-paisley.jpg",
+  mehfil: "/products/lehenga-02.png",
+  rang: "/products/lehenga-18.png",
+  midnight: "/products/blouse-03.png",
+  festive: "/products/lehenga-12.png",
+  "after-dark": "/products/lehenga-34.png",
+  "everyday-glam": "/products/blouse-01.png",
 };
 
 export function HomePage() {
@@ -39,7 +39,7 @@ export function HomePage() {
     <>
       <section className="bg-ink text-ivory">
         <div className="grid min-h-[100svh] lg:grid-cols-2">
-          <div className="relative z-10 flex flex-col justify-end px-5 pb-8 pt-28 md:px-10 lg:justify-center lg:pb-16 lg:pt-28">
+          <div className="relative z-10 order-2 flex flex-col justify-end px-5 pb-8 pt-10 md:px-10 lg:order-1 lg:justify-center lg:pb-16 lg:pt-28">
             <p className="eyebrow text-gold">UH presents</p>
             <h1 className="mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-1">
               <span className="font-deva text-6xl md:text-8xl">नव</span>
@@ -54,7 +54,7 @@ export function HomePage() {
               <Link href="/shop" className="btn border-ivory/40">Shop the edit</Link>
             </div>
           </div>
-          <div className="grid min-h-[56svh] grid-cols-2 grid-rows-2 lg:min-h-[100svh]">
+          <div className="order-1 grid min-h-[52svh] grid-cols-2 grid-rows-2 lg:order-2 lg:min-h-[100svh]">
             {heroShots.map((shot, index) => (
               <div key={shot.src} className="relative overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -178,7 +178,7 @@ export function HomePage() {
       <section className="grid bg-ink text-ivory lg:grid-cols-2">
         <div className="relative min-h-[70vw] overflow-hidden lg:min-h-[36rem]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/products/gol-buta.jpg" alt="Gol Buta, worn" className="kenburns absolute inset-0 h-full w-full object-cover" />
+          <img src="/products/lehenga-02.png" alt="Navy lehenga styled on a model" className="kenburns absolute inset-0 h-full w-full object-cover" />
         </div>
         <div className="flex flex-col justify-center px-5 py-14 md:px-12">
           <h2 className="display text-[clamp(3.4rem,8vw,6.4rem)]">

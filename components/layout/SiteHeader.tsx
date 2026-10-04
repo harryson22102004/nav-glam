@@ -19,6 +19,7 @@ function getScrolled() {
 }
 
 const shopLinks = [
+  { href: "/shop/lehengas", label: "Lehengas" },
   { href: "/shop?sort=new", label: "New arrivals" },
   { href: "/shop/sets?piece=3", label: "3-piece sets" },
   { href: "/shop/sets?piece=2", label: "2-piece sets" },

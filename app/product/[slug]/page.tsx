@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ProductDetail } from "@/components/product/ProductDetail";
 import { getProduct, getRelated, products } from "@/lib/catalog";
-import { formatPrice } from "@/lib/format";
+import { formatProductPrice } from "@/lib/format";
 import { siteUrl } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -35,7 +35,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     offers: {
       "@type": "Offer",
       priceCurrency: "INR",
-      price: product.price,
+      ...(product.priceOnRequest || product.priceIsEstimate ? {} : { price: product.price }),
       availability: "https://schema.org/PreOrder",
       url: `${siteUrl}/product/${product.slug}`,
     },
@@ -43,7 +43,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />
-      <p className="sr-only">{formatPrice(product.price)}</p>
+      {!product.priceOnRequest ? <p className="sr-only">{formatProductPrice(product.price, false, product.priceIsEstimate)}</p> : null}
       <ProductDetail product={product} related={related} />
     </>
   );

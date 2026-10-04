@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Heart } from "lucide-react";
 import { WaitlistButton } from "@/components/waitlist/WaitlistButton";
-import { formatPrice } from "@/lib/format";
+import { formatProductPrice } from "@/lib/format";
 import { useStore } from "@/lib/store";
 import type { Product } from "@/lib/types";
 
@@ -38,7 +38,7 @@ export function ProductCard({ product }: { product: Product }) {
           <Heart size={16} strokeWidth={1.5} fill={saved ? "currentColor" : "none"} />
         </button>
         <div className="absolute inset-x-0 bottom-0 flex gap-2 p-3 opacity-100 md:translate-y-2 md:opacity-0 md:transition md:group-hover:translate-y-0 md:group-hover:opacity-100 md:group-focus-within:translate-y-0 md:group-focus-within:opacity-100">
-          <WaitlistButton label="Pre-Order Now" productName={product.name} className="btn btn-solid min-w-0 flex-1 px-2 text-center leading-tight" />
+          <WaitlistButton label={product.priceOnRequest ? "Join the Waitlist" : "Pre-Order Now"} productName={product.name} className="btn btn-solid min-w-0 flex-1 px-2 text-center leading-tight" />
           <button className="btn bg-ivory/90" onClick={() => setQuickView(product.slug)}>View</button>
         </div>
       </div>
@@ -50,7 +50,7 @@ export function ProductCard({ product }: { product: Product }) {
           <p className="mt-1 text-[0.68rem] uppercase tracking-[0.16em] text-stone">{product.categoryLabel}</p>
           {product.sizes.includes("Free size") ? <p className="mt-1 text-xs text-stone">Free size</p> : null}
         </div>
-        <p className="pt-1 text-sm">{formatPrice(product.price)}</p>
+        <p className="pt-1 text-sm">{formatProductPrice(product.price, product.priceOnRequest, product.priceIsEstimate)}</p>
       </div>
     </article>
   );
