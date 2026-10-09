@@ -16,10 +16,10 @@ const heroShots = [
 ];
 
 const edits = [
-  { href: "/shop/lehengas", title: "The lehenga edit", kicker: "Worn, then seen", image: "/products/lehenga-02.png" },
+  { href: "/shop/sets", title: "3-piece sets", kicker: "Lehenga, blouse, dupatta", image: "/products/lehenga-02.png" },
   { href: "/shop/blouses", title: "Blouse stories", kicker: "Print and mirrorwork", image: "/products/blouse-06.png" },
   { href: "/shop/jackets", title: "The jacket edit", kicker: "Sleeveless layers", image: "/products/jacket-01.png" },
-  { href: "/shop/skirts", title: "Skirt culture", kicker: "Volume", image: "/products/lehenga-33.png" },
+  { href: "/shop/skirts", title: "Skirt culture", kicker: "Volume", image: "/products/skirt-4.png" },
 ];
 
 const moodShots: Record<string, string> = {
@@ -27,7 +27,7 @@ const moodShots: Record<string, string> = {
   rang: "/products/lehenga-18.png",
   midnight: "/products/blouse-03.png",
   festive: "/products/lehenga-12.png",
-  "after-dark": "/products/lehenga-34.png",
+  "after-dark": "/products/lehenga-13.png",
   "everyday-glam": "/products/blouse-01.png",
 };
 
@@ -39,19 +39,28 @@ export function HomePage() {
     <>
       <section className="bg-ink text-ivory">
         <div className="grid min-h-[100svh] lg:grid-cols-2">
-          <div className="relative z-10 order-2 flex flex-col justify-end px-5 pb-8 pt-10 md:px-10 lg:order-1 lg:justify-center lg:pb-16 lg:pt-28">
-            <p className="eyebrow text-gold">UH presents</p>
-            <h1 className="mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-1">
-              <span className="font-deva text-6xl md:text-8xl">नव</span>
-              <span className="font-serif text-6xl tracking-[0.12em] md:text-8xl">GLAM</span>
-            </h1>
-            <p className="mt-5 max-w-md font-serif text-3xl leading-tight md:text-4xl">Heritage, reimagined.</p>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-ivory/75">
-              Lehengas, free-size blouses, a koti and skirts — the cloth in the photographs, cut for a wardrobe that also owns denim and a night out.
-            </p>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <WaitlistButton label="Pre-Order Now" className="btn" />
-              <Link href="/shop" className="btn border-ivory/40">Shop the edit</Link>
+          <div className="relative isolate order-2 flex flex-col justify-end overflow-hidden px-5 pb-8 pt-10 md:px-10 lg:order-1 lg:justify-center lg:pb-16 lg:pt-28">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/brand/nav-glam-logo.png"
+              alt=""
+              aria-hidden="true"
+              className="hero-mark-fade pointer-events-none absolute left-1/2 top-1/2 z-0 w-[min(76%,32rem)] -translate-x-1/2 -translate-y-1/2 object-contain mix-blend-screen"
+            />
+            <div className="relative z-10">
+              <p className="eyebrow text-gold">UH presents</p>
+              <h1 className="mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                <span className="font-deva text-5xl md:text-7xl">नव</span>
+                <span className="font-serif text-5xl tracking-[0.12em] md:text-7xl">GLAM</span>
+              </h1>
+              <p className="mt-5 max-w-md font-serif text-3xl leading-tight md:text-4xl">Heritage, reimagined.</p>
+              <p className="mt-4 max-w-sm text-sm leading-relaxed text-ivory/75">
+                Lehengas, free-size blouses, a koti and skirts — the cloth in the photographs, cut for a wardrobe that also owns denim and a night out.
+              </p>
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                <WaitlistButton label="Pre-Order Now" className="btn" />
+                <Link href="/shop" className="btn border-ivory/40">Shop the edit</Link>
+              </div>
             </div>
           </div>
           <div className="order-1 grid min-h-[52svh] grid-cols-2 grid-rows-2 lg:order-2 lg:min-h-[100svh]">
@@ -88,7 +97,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="bg-ivory">
+      <section className="bg-ivory pt-6 md:pt-10">
         <div className="grid md:grid-cols-2">
           {edits.map((edit) => (
             <Link key={edit.href} href={edit.href} className="group relative block min-h-[68vw] overflow-hidden bg-ink md:min-h-[28rem]">

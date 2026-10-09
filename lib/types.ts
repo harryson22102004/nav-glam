@@ -16,7 +16,6 @@ export type Mood =
 export type Category =
   | "3-piece"
   | "2-piece"
-  | "lehenga"
   | "blouse"
   | "padded-blouse"
   | "jacket"

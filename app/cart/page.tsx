@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { WaitlistButton } from "@/components/waitlist/WaitlistButton";
 import { ProductVisual } from "@/components/visual/ProductVisual";
 import { formatProductPrice } from "@/lib/format";
 import { useStore } from "@/lib/store";
@@ -56,11 +55,7 @@ export default function CartPage() {
                 <span>{formatProductPrice(subtotal, false, detailed.some((line) => line.product.priceIsEstimate))}</span>
               </div>
               <p className="mt-3 text-sm text-stone">Join the waitlist for this edit. The first batch is cut from demand.</p>
-              <WaitlistButton
-                label="Pre-Order Now"
-                productName={detailed.map((line) => line.product.name).join(", ")}
-                className="btn btn-solid mt-6 w-full"
-              />
+              <Link href="/payment" className="btn btn-solid mt-6 w-full">Continue to UPI payment</Link>
             </aside>
           </div>
         )}

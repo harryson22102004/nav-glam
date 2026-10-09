@@ -50,21 +50,29 @@ const lehengaDescriptions: LehengaDescription[] = [
   { colorName: "Red", study: "maroon", description: "A red lehenga skirt with a dark, densely patterned border.", view: "Product view" },
 ];
 
-export const lehengaProducts: Product[] = lehengaDescriptions.map((item, index) => {
+const threePieceImageNumbers = [
+  ...Array.from({ length: 18 }, (_, index) => index + 1),
+  20,
+  21,
+  22,
+];
+
+export const threePieceProducts: Product[] = threePieceImageNumbers.map((imageNumber, index) => {
+  const item = lehengaDescriptions[imageNumber - 1];
   const number = String(index + 1).padStart(2, "0");
   const price = item.view === "On-model view"
     ? 3400 + (index % 6) * 150
     : 2600 + (index % 5) * 150;
   return {
-    id: `ng-lehenga-${number}`,
-    name: `Lehenga ${number}`,
+    id: `ng-three-piece-${number}`,
+    name: `3-Piece Set ${number}`,
     nameIsPlaceholder: true,
-    slug: `lehenga-${number}`,
-    category: "lehenga",
-    categoryLabel: "Lehenga",
+    slug: `3-piece-set-${number}`,
+    category: "3-piece",
+    categoryLabel: "3-piece set",
     price,
     priceIsEstimate: true,
-    images: [`/products/lehenga-${number}.png`],
+    images: [`/products/lehenga-${String(imageNumber).padStart(2, "0")}.png`],
     study: item.study,
     silhouette: "skirt",
     description: `${item.description} Fabric, included pieces and sizing are to be confirmed.`,
@@ -73,7 +81,7 @@ export const lehengaProducts: Product[] = lehengaDescriptions.map((item, index) 
     colorName: item.colorName,
     colorIsEditorial: false,
     tags: [],
-    keywords: ["lehenga", "skirt", item.colorName.toLowerCase()],
+    keywords: ["3-piece", "lehenga", "choli", "dupatta", item.colorName.toLowerCase()],
     collection: "Lehenga Edit",
     moods: ["festive"],
     featured: false,

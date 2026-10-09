@@ -15,7 +15,7 @@ export function Logo({
 }) {
   const color = tone === "ivory" ? "text-ivory" : "text-ink";
   return (
-    <Link href="/" className={cn("logo-lockup items-center gap-2", color)} aria-label="UH home">
+    <Link href="/" className={cn("logo-lockup items-center", color)} aria-label="UH home">
       {src ? (
         <Image
           src={src}
@@ -50,7 +50,6 @@ export function Logo({
           />
         </svg>
       )}
-      <span className={cn("font-serif font-medium leading-none", compact ? "text-2xl" : "text-[1.8rem] md:text-[2rem]")}>UH</span>
     </Link>
   );
 }

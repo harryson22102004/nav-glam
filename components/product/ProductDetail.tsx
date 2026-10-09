@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Heart, X } from "lucide-react";
+import { AddToBagButton } from "@/components/cart/AddToBagButton";
 import { ProductCard } from "@/components/product/ProductCard";
+import { ProductReviews } from "@/components/reviews/ProductReviews";
 import { OverlayDialog } from "@/components/ui/OverlayDialog";
 import { WaitlistButton } from "@/components/waitlist/WaitlistButton";
 import { formatProductPrice } from "@/lib/format";
@@ -58,15 +60,15 @@ export function ProductDetail({ product, related }: { product: Product; related:
             ))}
           </ul>
           <div className="mt-6 flex flex-wrap gap-3">
+            <AddToBagButton slug={product.slug} />
             <WaitlistButton label="Join the Waitlist" productName={product.name} />
-            {!product.priceOnRequest ? <WaitlistButton label="Pre-Order Now" productName={product.name} className="btn" /> : null}
             <button className="btn" aria-pressed={wished(product.slug)} onClick={() => toggleWish(product.slug)}>
               <Heart size={14} fill={wished(product.slug) ? "currentColor" : "none"} />
               Wishlist
             </button>
           </div>
           <p className="mt-4 text-xs text-stone">
-            {product.priceOnRequest
+            {product.priceOnRequest || product.priceIsEstimate
               ? `Photographed in ${product.colorName}. Sizing and availability will be confirmed before ordering.`
               : `Photographed in ${product.colorName}. Size is confirmed when you join the waitlist.`}
           </p>
@@ -90,6 +92,7 @@ export function ProductDetail({ product, related }: { product: Product; related:
           </div>
         </div>
       </div>
+      <ProductReviews productSlug={product.slug} />
       <section className="mx-auto max-w-[1500px] px-5 py-16 md:px-10">
         <h2 className="font-serif text-4xl md:text-5xl">Style with it</h2>
         <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-4">

@@ -70,7 +70,7 @@ export const lookbookChapters = [
     copy: "Volume, a 15m flare, and skirt-only pieces for when you want the silhouette without the rest of the set.",
     study: "turquoise" as const,
     silhouette: "flare" as const,
-    image: "/products/lehenga-31.png",
+    image: "/products/skirt-1.png",
     href: "/shop/skirts",
     cta: "Shop skirts",
   },

@@ -1,13 +1,14 @@
 import type { Category, Mood, Product } from "./types";
 import type { Silhouette } from "./studies";
-import { lehengaProducts } from "./lehenga-products";
+import { threePieceProducts } from "./lehenga-products";
 import { additionalProducts } from "./additional-products";
+import { twoPieceProducts } from "./two-piece-products";
 
 /**
  * House catalog. Photography is the cloth itself, placed in /public/products.
  * Prices stay inside the supplied नव GLAM list (₹1,250–₹4,200).
  */
-export const products: Product[] = [
+const legacyProducts: Product[] = [
   {
     id: "ng-01",
     name: "Neel Mandala",
@@ -347,7 +348,7 @@ export const products: Product[] = [
     category: "flare-skirt",
     categoryLabel: "Flare skirt",
     price: 2800,
-    images: ["/products/lehenga-31.png"],
+    images: ["/products/skirt-1.png"],
     study: "mustard",
     silhouette: "flare",
     description:
@@ -371,7 +372,7 @@ export const products: Product[] = [
     category: "skirt",
     categoryLabel: "Skirt",
     price: 1500,
-    images: ["/products/lehenga-32.png"],
+    images: ["/products/skirt-2.png"],
     study: "midnight",
     silhouette: "skirt",
     description: "Navy skirt with gold linear embroidery running through the flare and a denser band at the hem.",
@@ -394,7 +395,7 @@ export const products: Product[] = [
     category: "skirt-only",
     categoryLabel: "Border skirt",
     price: 1250,
-    images: ["/products/lehenga-33.png"],
+    images: ["/products/skirt-3.png"],
     study: "cream",
     silhouette: "skirt",
     description: "An ivory flare with a deep maroon border of floral jaal and a white tassel edge.",
@@ -417,7 +418,7 @@ export const products: Product[] = [
     category: "skirt",
     categoryLabel: "Skirt",
     price: 1300,
-    images: ["/products/lehenga-34.png"],
+    images: ["/products/skirt-5.png"],
     study: "ink",
     silhouette: "skirt",
     description: "A black flared skirt with a red border of repeating figures and a narrow black fringe.",
@@ -432,8 +433,39 @@ export const products: Product[] = [
     featured: false,
     pieces: ["skirt"],
   },
-  ...lehengaProducts,
+];
+
+const additionalSkirtProduct: Product = {
+  id: "ng-skirt-05",
+  name: "Skirt 05",
+  nameIsPlaceholder: true,
+  slug: "skirt-05",
+  category: "skirt",
+  categoryLabel: "Skirt",
+  price: 2400,
+  priceIsEstimate: true,
+  images: ["/products/skirt-4.png"],
+  study: "saffron",
+  silhouette: "flare",
+  description: "A bright colour-blocked flared skirt with vertical panels in yellow, blue, green and red. Estimated price; fabric and sizing details are to be confirmed.",
+  catalogNotes: ["Colour-blocked flare", "Estimated price", "Specifications to be confirmed"],
+  sizes: ["Catalog size unspecified"],
+  colorName: "Multicolour",
+  colorIsEditorial: false,
+  tags: [],
+  keywords: ["skirt", "flare", "colour block", "multicolour"],
+  collection: "Skirt Culture",
+  moods: ["rang", "day-out"],
+  featured: false,
+  pieces: ["skirt"],
+};
+
+export const products: Product[] = [
+  ...legacyProducts.filter((product) => !["ng-01", "ng-02", "ng-03", "ng-04", "ng-05", "ng-06", "ng-07"].includes(product.id)),
+  ...threePieceProducts,
+  ...twoPieceProducts,
   ...additionalProducts,
+  additionalSkirtProduct,
 ];
 
 export const categoryGroups: Record<

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { X } from "lucide-react";
+import { AddToBagButton } from "@/components/cart/AddToBagButton";
 import { OverlayDialog } from "@/components/ui/OverlayDialog";
 import { ProductVisual } from "@/components/visual/ProductVisual";
 import { getProduct } from "@/lib/catalog";
@@ -35,6 +36,7 @@ export function QuickView() {
               {product.catalogNotes.map((note) => <li key={note}>{note}</li>)}
             </ul>
             <div className="mt-6 flex flex-wrap gap-3">
+              <AddToBagButton slug={product.slug} />
               <WaitlistButton label="Join the Waitlist" productName={product.name} />
               <Link href={`/product/${product.slug}`} onClick={() => setQuickView(null)} className="btn">View details</Link>
               <button className="btn" onClick={() => toggleWish(product.slug)}>{wished(product.slug) ? "Wishlisted" : "Wishlist"}</button>

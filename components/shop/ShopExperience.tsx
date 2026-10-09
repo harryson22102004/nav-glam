@@ -131,7 +131,6 @@ export function ShopExperience({
         <div className="mt-8 flex gap-2 overflow-x-auto hide-scroll text-[0.68rem] tracking-[0.18em] uppercase">
           {[
             ["/shop", "All"],
-            ["/shop/lehengas", "Lehengas"],
             ["/shop/sets", "Sets"],
             ["/shop/blouses", "Blouses"],
             ["/shop/jackets", "Jackets"],
